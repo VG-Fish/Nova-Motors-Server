@@ -1,6 +1,7 @@
 from flask import Flask
 import google.generativeai as genai, sys, os
 from dotenv import load_dotenv
+from portpicker import pick_unused_port
 
 # Create Flask App
 app = Flask(__name__)
@@ -16,5 +17,3 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 def get_response(prompt: str = "Say 'Generating...'") -> str:
     response = model.generate_content(prompt)
     return response.text
-
-app.run(host="0.0.0.0", port=80)
