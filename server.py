@@ -13,6 +13,8 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 # To get gemini responses
 @app.route("/")
-def get_response(prompt: str) -> str:
+def get_response(prompt: str = "Say 'Generating...'") -> str:
     response = model.generate_content(prompt)
     return response.text
+
+app.run(host="0.0.0.0", port=80)
