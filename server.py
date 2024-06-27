@@ -1,5 +1,5 @@
 from flask import Flask
-import google.generativeai as genai, sys, os
+import google.generativeai as genai, os
 from dotenv import load_dotenv
 from portpicker import pick_unused_port
 
