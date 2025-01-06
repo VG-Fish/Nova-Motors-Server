@@ -14,6 +14,12 @@ genai.configure(api_key=os.getenv("KEY"))
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 
+# Base route
+@app.route("/")
+def index():
+    return "Flask app is running!"
+
+
 # To get gemini responses
 @app.route("/gemini", methods=["GET", "POST"])
 def get_gemini_response(prompt: str = "Say 'Generating...'") -> dict:
@@ -21,3 +27,7 @@ def get_gemini_response(prompt: str = "Say 'Generating...'") -> dict:
     prompt = prompt if prompt else "Say 'Generating...'"
     response = model.generate_content(prompt)
     return response.to_dict()
+
+
+if __name__ == "__main__":
+    app.run()
