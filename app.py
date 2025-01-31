@@ -11,7 +11,7 @@ app.debug = False
 load_dotenv(".env")
 genai.configure(api_key=os.getenv("KEY"))
 # The model
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.0-flash-exp")
 
 
 # Base route
